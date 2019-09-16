@@ -14,7 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return view('be/department/list');
+        $departments = Department::All();
+        return view('be/department/list',['departments'=>$departments]);
     }
 
     /**
@@ -43,6 +44,8 @@ class DepartmentController extends Controller
         ]);
         $departments = New Department();
         $departments->name = $request->name;
+        $departments->save();
+        return redirect('admin/department/list')->with('msg','Thêm phòng ban thành công');
     }
 
     /**

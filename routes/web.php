@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'department'], function () {
-        Route::get('list', 'Department@index');
-        Route::get('add', 'Department@create');
-        Route::post('add', 'Department@store');
+        Route::get('list', 'DepartmentController@index');
+        Route::get('add', 'DepartmentController@create');
+        Route::post('add', 'DepartmentController@store')->name('add');
         
     });
 });
