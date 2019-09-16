@@ -1,0 +1,1 @@
+<form action="{{route('add')}}" method="post"></form>
