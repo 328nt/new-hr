@@ -65,9 +65,11 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit($id)
     {
-        //
+        $departments = Department::Find($id);
+        return view('be/department/edit',['departments'=>$departments]);
+
     }
 
     /**
@@ -77,9 +79,17 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, $id)
     {
-        //
+        $departments =Department::Find($id);
+        $this->validate($request, [
+
+        ],[
+
+        ]);
+        $departments->name = $request->name;
+        $departments->save();
+        return redirect('admin/department/list')->with('msg','Sửa phòng ban thành công !');
     }
 
     /**
@@ -88,8 +98,10 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy($id)
     {
-        //
+        $departments = Department::Find($id);
+        $departments->delete();
+        return redirect('admin/department/list')->with('msg','Xóa phòng ban thành công');
     }
 }
