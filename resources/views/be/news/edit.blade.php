@@ -6,7 +6,7 @@ add
 @endsection
 @section('content')
 @include('msg')
-<div class="col-md-8">
+<div class="col-md-12">
     <div class="ibox">
         <div class="ibox-head">
             <div class="ibox-title">Thêm Tin tức</div>
@@ -61,6 +61,49 @@ add
                 </div>
             </form>
         </div>
+    </div>
+</div>
+<hr>
+<div class="col-md-12">
+    Comment
+    <div class="ibox-body" style="overflow-x:auto;">
+        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0"
+            width="100%">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>User</th>
+                    <th>Content</th>
+                    <th>date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>id</th>
+                    <th>User</th>
+                    <th>Content</th>
+                    <th>date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach ($news->comments as $cm)
+                <tr>
+                    <td>{{$cm->id}}</td>
+                    <td>{{$cm->user->name}}</td>
+                    <td>{{$cm->content}}</td>
+                    <td>{{$cm->created_at}}</td>
+                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a
+                            href="admin/comment/edit/{{$cm->id}}">Edit</a></td>
+                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a
+                            href="admin/comment/delete/{{$cm->id}}"> Delete</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection

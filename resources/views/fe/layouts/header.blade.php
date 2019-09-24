@@ -5,10 +5,6 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_right_content">
-                            <span>Top destinations</span>
-                            <a href="#">Asia</a>
-                            <a href="#">Europe</a>
-                            <a href="#">America</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">
@@ -17,7 +13,7 @@
                             <a href="#"><i class="flaticon-twitter"></i></a>
                             <a href="#"><i class="flaticon-skype"></i></a>
                             <a href="#"><i class="flaticon-instagram"></i></a>
-                            <span><i class="flaticon-phone-call"></i>+880 356 257 142</a></span>
+                            <span><i class="flaticon-phone-call"></i>Line: 2442</a></span>
                         </div>
                     </div>
                 </div>
@@ -45,40 +41,61 @@
                                         <a class="nav-link" href="{{route('about')}}">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="packages.html">packages</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" href="{{route('news')}}">News</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            Blog
+                                            Department
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">Blog</a>
-                                            <a class="dropdown-item" href="single-blog.html">Single blog</a>
+                                            @foreach ($departments as $department)
+                                        <a class="dropdown-item" href="department/{{$department->id}}">{{$department->name}}</a>
+                                            @endforeach
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            pages
+                                            Training
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                            <a class="dropdown-item" href="top_place.html">top place</a>
-                                            <a class="dropdown-item" href="tour_details.html">tour details</a>
-                                            <a class="dropdown-item" href="elements.html">Elements</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#myModal" href="top_place.html">Hội nhập</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#myModal" href="tour_details.html">Văn hóa công ty</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#myModal" href="elements.html">Nghiệp vụ</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#myModal" href="elements.html">khác..</a>
                                         </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Quy trình
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                                @foreach ($departments as $department)
+                                                <a class="dropdown-item" href="department/{{$department->id}}">{{$department->name}}</a>
+                                                    @endforeach
+                                        </div>
                                     </li>
+                                    
+                        <li class="dropdown dropdown-user">
+                                <a class="nav-link link" data-toggle="dropdown">
+                                    <img height="20px" src="upload/users/{{Auth::user()->image}}" />
+                                    <span></span>{{Auth::user()->fullname}}<i class="fa fa-angle-down m-l-5"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="staff/account/{{Auth::user()->id}}"><i class="fa fa-user"></i>Profile</a>
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#myModal" href="#"><i class="fa fa-cog"></i>Settings</a>
+                                    <li class="dropdown-divider"></li>
+                                    <a class="dropdown-item" href="staff/logout"><i class="fa fa-power-off"></i>Logout</a>
+                                </ul>
+                            </li>
                                 </ul>
                             </div>
-                            <a href="#" class="btn_1 d-none d-lg-block">book now</a>
+                            {{-- <a href="#" class="btn_1 d-none d-lg-block">book now</a> --}}
+                            
                         </nav>
                     </div>
                 </div>

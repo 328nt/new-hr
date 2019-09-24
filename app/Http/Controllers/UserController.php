@@ -38,6 +38,7 @@ class UserController extends Controller
         $users->staff_code = $rq->staff_code;
         $users->usersname = 'ieg'.''.$rq->staff_code;
         $users->email = $rq->email;
+        $users->lead = $rq->phone;
         $users->birthday = $rq->birthday;
         $users->dayin = $rq->dayin;
         $users->vacation = $rq->vacation;
@@ -83,6 +84,7 @@ class UserController extends Controller
         $users->staff_code = $rq->staff_code;
         $users->usersname = 'ieg'.''.$rq->staff_code;
         $users->email = $rq->email;
+        $users->lead = $rq->phone;
         $users->birthday = $rq->birthday;
         $users->dayin = $rq->dayin;
         $users->vacation = $rq->vacation;

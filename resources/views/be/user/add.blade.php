@@ -32,6 +32,12 @@ list
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="phone" type="text" placeholder="Phone number">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
                         <input class="form-control" name="password" type="password" placeholder="Password">

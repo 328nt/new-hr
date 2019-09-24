@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\User;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class UsersImport implements ToModel
+class UsersImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -16,16 +17,16 @@ class UsersImport implements ToModel
     {
         return new User([
             
-            'fullname'    => $row[1], 
-            'usersname'     => 'ieg'.''.$row[3],
-            'staff_code'    => $row[3], 
-            'email'    => $row[5],
-            'image'    => $row[9], 
-            'birthday'    => $row[10], 
-            'dayin'    => $row[11],
-            'vacation'    => $row[12],
-            'id_department'    => $row[14],
-            'id_position'    => $row[15],
+            'fullname'    => $row['name'], 
+            'usersname'     => 'ieg'.''.$row['staff_code'],
+            'staff_code'    => $row['staff_code'], 
+            'email'    => $row['email'],
+            'image'    => $row['image'], 
+            'birthday'    => $row['dob'], 
+            'dayin'    => $row['dayin'],
+            'vacation'    => $row['vacation'],
+            'id_department'    => $row['department'],
+            'id_position'    => $row['position'],
             'password' => \Hash::make('123456'),
         ]);
     }

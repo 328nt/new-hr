@@ -5,3 +5,4 @@
 <button type="submit">add</button>
 <button type="reset">reset</button>
 </form>
+@include('msg')

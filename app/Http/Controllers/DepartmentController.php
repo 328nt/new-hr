@@ -45,7 +45,7 @@ class DepartmentController extends Controller
         $departments = New Department();
         $departments->name = $request->name;
         $departments->save();
-        return redirect('admin/department/list')->with('msg','Thêm phòng ban thành công');
+        return redirect('admin/department/add')->with('msg','Thêm phòng ban thành công');
     }
 
     /**

@@ -8,7 +8,8 @@
             <div class="col-lg-12">
                 <div class="breadcrumb_iner">
                     <div class="breadcrumb_iner_item text-center">
-                        <h2>About Us</h2>
+                        <h2>Department</h2>
+                        <p>{{$department->name}}</p>
                     </div>
                 </div>
             </div>
@@ -137,71 +138,79 @@
         <div class="row justify-content-center">
             <div class="col-xl-6">
                 <div class="section_tittle text-center">
-                    <h2>STAFF OF IEG</h2>
-                    <p>WKhông khí Hà Nội trở lại ngưỡng kém, Thái Bình, Hải Phòng ô nhiễm nhất Bắc Bộ</p>
+                    <h2>{{$department->name}}</h2>
+                    <p>Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales
+                        grass is fish whales winged.</p>
                 </div>
             </div>
         </div>
-        <div>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                Tất cả nhân viên
-            </button>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-    
-                    <div class="ibox">
-                        <div class="ibox-body">
-                            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0"
-                                width="100%">
-                                <thead>
-                                    <tr style="color: #fff; text-align: center; background-color: #114275;">
-                                        <th>Tên</th>
-                                        <th>Mã NV</th>
-                                        <th>Email</th>
-                                        <th>Sđt</th>
-                                        <th>Phòng ban</th>
-                                        <th>Chức vụ</th>
-                                        <th>DOB</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Tên</th>
-                                        <th>Mã NV</th>
-                                        <th>Email</th>
-                                        <th>Sđt</th>
-                                        <th>Phòng ban</th>
-                                        <th>Position</th>
-                                        <th>DOB</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody style="text-align:center; line-height: 120px">
-    
-                                    @foreach ($users as $user)
-                                    <tr>
-                                        <td>
-                                            <p><a href="staff/account/{{$user->id}}">{{$user->fullname}}</a></p>
-                                            <p style="background-image: url(upload/users/{{$user->image}});
-                                            height: 100px; 
-                                            background-position: center;
-                                            background-repeat: no-repeat;
-                                            background-size: cover;"></p>
-                                        </td>
-                                        <td>{{$user->staff_code}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>{{$user->lead}}</td>
-                                        <td>{{$user->department->name}}</td>
-                                        <td>{{$user->position->name}}</td>
-                                        <td>{{$user->birthday}}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+
+
+
+        <div class="ibox">
+            <div class="ibox-body">
+                <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0"
+                    width="100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Staff Code</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th>Department</th>
+                            <th>Birth</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Staff Code</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th>Department</th>
+                            <th>Birth</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        
+                            @foreach ($usersid as $user)
+                            <tr>
+                                <td>{{$user->fullname}}</td>
+                                <td><img width="100px" height="100px" src="upload/users/{{$user->image}}" alt=""></td>
+                                <td>{{$user->staff_code}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->position->name}}</td>
+                                <td>{{$user->department->name}}</td>
+                                <td>{{$user->birthday}}</td>
+                            </tr>
+                            @endforeach
+                        
+                        <tr>
+                            <td>Sakura Yamamoto</td>
+                            <td>Support Engineer</td>
+                            <td>Tokyo</td>
+                            <td>37</td>
+                            <td>37</td>
+                            <td>2009/08/19</td>
+                            <td>$139,575</td>
+                        </tr>
+                        <tr>
+                            <td>Thor Walton</td>
+                            <td>Developer</td>
+                            <td>New York</td>
+                            <td>61</td>
+                            <td>2013/08/11</td>
+                            <td>$98,540</td>
+                            <td>$98,540</td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+    </div>
 </section>
 <!--::industries end::-->
 
@@ -211,7 +220,7 @@
         <div class="row ">
             <div class="col-xl-6">
                 <div class="section_tittle">
-                    <h2>Faces of the week</h2>
+                    <h2>What they said</h2>
                 </div>
             </div>
         </div>
@@ -219,8 +228,15 @@
             <div class="col-lg-12">
                 <div class="client_review_slider owl-carousel">
                     <div class="single_review_slider">
-                        <p><img src="fe/img/services_2.png" alt=""> </p>
-                        <h5> - Allen Miller</h5>
+                        <div class="place_review">
+                            <a href="#"><i class="fas fa-star"></i></a>
+                            <a href="#"><i class="fas fa-star"></i></a>
+                            <a href="#"><i class="fas fa-star"></i></a>
+                            <a href="#"><i class="fas fa-star"></i></a>
+                            <a href="#"><i class="fas fa-star"></i></a>
+                        </div>
+                        <p>"chúng tôi tin rằng, đích đến thật sự không phải là những thành công trước mắt, mà là chân trời rộng mở ngày ra biển lớn, nơi các em phải tự bước đi bằng chính nội lực và bản lĩnh của mình.</p>
+                        <h5> - Tiến sĩ Nguyễn Chí Hiếu</h5>
                     </div>
                     <div class="single_review_slider">
                         <div class="place_review">
@@ -230,9 +246,8 @@
                             <a href="#"><i class="fas fa-star"></i></a>
                             <a href="#"><i class="fas fa-star"></i></a>
                         </div>
-                        <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales
-                            grass is fish whales winged night yielding land creeping that seed </p>
-                        <h5> - Allen Miller</h5>
+                        <p>"chúng tôi tin rằng, đích đến thật sự không phải là những thành công trước mắt, mà là chân trời rộng mở ngày ra biển lớn, nơi các em phải tự bước đi bằng chính nội lực và bản lĩnh của mình.</p>
+                        <h5> - Tiến sĩ Nguyễn Chí Hiếu</h5>
                     </div>
                     <div class="single_review_slider">
                         <div class="place_review">
@@ -242,9 +257,8 @@
                             <a href="#"><i class="fas fa-star"></i></a>
                             <a href="#"><i class="fas fa-star"></i></a>
                         </div>
-                        <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales
-                            grass is fish whales winged night yielding land creeping that seed </p>
-                        <h5> - Allen Miller</h5>
+                        <p>"chúng tôi tin rằng, đích đến thật sự không phải là những thành công trước mắt, mà là chân trời rộng mở ngày ra biển lớn, nơi các em phải tự bước đi bằng chính nội lực và bản lĩnh của mình.</p>
+                        <h5> - Tiến sĩ Nguyễn Chí Hiếu</h5>
                     </div>
                     <div class="single_review_slider">
                         <div class="place_review">
@@ -254,9 +268,8 @@
                             <a href="#"><i class="fas fa-star"></i></a>
                             <a href="#"><i class="fas fa-star"></i></a>
                         </div>
-                        <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales
-                            grass is fish whales winged night yielding land creeping that seed </p>
-                        <h5> - Allen Miller</h5>
+                        <p>"chúng tôi tin rằng, đích đến thật sự không phải là những thành công trước mắt, mà là chân trời rộng mở ngày ra biển lớn, nơi các em phải tự bước đi bằng chính nội lực và bản lĩnh của mình.</p>
+                        <h5> - Tiến sĩ Nguyễn Chí Hiếu</h5>
                     </div>
                     <div class="single_review_slider">
                         <div class="place_review">
@@ -266,9 +279,8 @@
                             <a href="#"><i class="fas fa-star"></i></a>
                             <a href="#"><i class="fas fa-star"></i></a>
                         </div>
-                        <p>Waters make fish every without firmament saw had. Morning air subdue. Our Air very one whales
-                            grass is fish whales winged night yielding land creeping that seed </p>
-                        <h5> - Allen Miller</h5>
+                        <p>"chúng tôi tin rằng, đích đến thật sự không phải là những thành công trước mắt, mà là chân trời rộng mở ngày ra biển lớn, nơi các em phải tự bước đi bằng chính nội lực và bản lĩnh của mình.</p>
+                        <h5> - Tiến sĩ Nguyễn Chí Hiếu</h5>
                     </div>
                 </div>
             </div>
@@ -278,50 +290,6 @@
 <!--top place end-->
 
 <!--::gallery part start::-->
-<section class="our_gallery section_padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-6">
-                <div class="section_tittle text-center">
-                    <h2>Our gallery</h2>
-                    <p>WWaters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales
-                        grass is fish whales winged.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card-columns">
-                    <div class="card">
-                        <a href="fe/img/gallery/gallery_1.png" class="gallery_img">
-                            <img src="fe/img/gallery/gallery_1.png" class="card-img-top" alt="">
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="fe/img/gallery/gallery_3.png" class="gallery_img">
-                            <img src="fe/img/gallery/gallery_3.png" class="card-img-top" alt="">
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="fe/img/gallery/gallery_2.png" class="gallery_img">
-                            <img src="fe/img/gallery/gallery_2.png" class="card-img-top" alt="">
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="fe/img/gallery/gallery_4.png" class="gallery_img">
-                            <img src="fe/img/gallery/gallery_4.png" class="card-img-top" alt="">
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="fe/img/gallery/gallery_5.png" class="gallery_img">
-                            <img src="fe/img/gallery/gallery_5.png" class="card-img-top" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!--::gallery part end::-->
 @endsection
 @section('script')

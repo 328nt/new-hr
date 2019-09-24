@@ -9,7 +9,8 @@
                     <div class="col-lg-12">
                         <div class="breadcrumb_iner">
                             <div class="breadcrumb_iner_item text-center">
-                                <h2>Tin tức IEG</h2>
+                                <h2>blog</h2>
+                                <p>home . {{$category->name}}</p>
                             </div>
                         </div>
                     </div>
@@ -24,12 +25,12 @@
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
-                            @foreach ($news as $new)
+                            @foreach ($newsid as $new)
                                 
                             <article class="blog_item">
                                     <div class="blog_item_img">
                                         <img class="card-img rounded-0" src="upload/news/{{$new->image}}" alt="">
-                                        <a href="news/{{$new->id}}" class="blog_item_date">
+                                        <a href="#" class="blog_item_date">
                                             <h3>{{$new->updated_at}}</h3>
                                         </a>
                                     </div>
@@ -40,15 +41,15 @@
                                         </a>
                                         <p>{{$new->description}}</p>
                                         <ul class="blog-info-link">
-                                                <li><a href="staff/account/{{$new->users->id}}"><i class="far fa-user"></i> {{$new->users->fullname}}</a></li>
-                                                <li><a href="news/{{$new->id}}#comment"><i class="far fa-comments"></i> {{count($new->comments)}} Comments</a></li>
+                                            <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
+                                            <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
                                         </ul>
                                     </div>
                                 </article>
                             @endforeach
     
                             <nav class="blog-pagination justify-content-center d-flex">
-                                    {{ $news->links() }}
+                                    {{ $newsid->links() }}
                             </nav>
                         </div>
                     </div>

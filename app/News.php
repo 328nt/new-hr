@@ -10,4 +10,13 @@ class News extends Model
     {
         return $this->belongsTo('App\Category', 'id_category', 'id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'idNews', 'id');
+    }
+    public function users()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 }

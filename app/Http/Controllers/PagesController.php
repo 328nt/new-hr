@@ -9,10 +9,20 @@ use App\Category;
 use App\News;
 use App\Department;
 use App\Position;
+use App\Role;
 use App\User;
 
 class PagesController extends Controller
 {
+    function __construct()
+	{
+		$departments = Department::All();
+        $positions = Position::all();
+        $categories = Category::all();
+		view::share('departments',$departments);
+		view::share('positions',$positions);
+		view::share('categories',$categories);
+    }
     
     public function index()
     {
@@ -20,23 +30,119 @@ class PagesController extends Controller
     }
     public function about()
     {
-        $departments = Department::all();
-        $positions = Position::all();
         $users = User::all();
-        return view('fe/pages/about',['positions'=>$positions,'users'=>$users, 'departments'=>$departments]);
+        return view('fe/pages/about',['users'=>$users]);
+    }
+
+    
+    public function department($id)
+    {
+        $department = Department::find($id);
+        $usersid = User::where('id_department', $id)->paginate(3);
+        return view('fe/pages/departments',['department'=>$department,'usersid'=>$usersid]);
+    }
+
+    
+    public function category($id)
+    {
+        $spotlight = News::where('hightlight', 1)->take(3)->get();
+        $category = Category::find($id);
+        $news = News::orderBy('id', 'DESC')->paginate(3);
+        $newsid = News::where('id_category', $id)->paginate(3);
+        return view('fe/pages/categories',['spotlight'=>$spotlight, 'category'=>$category, 'news'=>$news, 'newsid'=>$newsid]);
     }
     
     public function news()
     {
-        $categories = Category::all();
+        $spotlight = News::where('hightlight', 1)->take(3)->get();
         $news = News::orderBy('id', 'DESC')->paginate(3);
-        return view('fe/pages/news',['categories'=>$categories, 'news'=>$news]);
+        return view('fe/pages/news',['spotlight'=>$spotlight, 'news'=>$news]);
     }
     public function newsingle($id)
     {
-        $categories = Category::all();
+        $spotlight = News::where('hightlight', 1)->take(3)->get();
         $new = News::find($id);
+        $previous = News::where('id', '<', $new->id)->max('id');
+        $next = News::where('id', '>', $new->id)->min('id');
         $news = News::orderBy('id', 'DESC')->paginate(4);
-        return view('fe/pages/new',['categories'=>$categories, 'news'=>$news, 'new'=>$new]);
+        return view('fe/pages/new',['next'=>$next, 'previous'=>$previous, 'spotlight'=>$spotlight, 'news'=>$news, 'new'=>$new]);
+    }
+
+
+
+
+    //account
+    public function getaccount($id)
+    {
+        $departments = Department::All();
+        $positions = Position::All();
+        $roles = Role::All();
+        $user = User::Find($id);
+        return view('fe/account/edit', ['positions'=>$positions, 'roles'=>$roles, 'departments'=>$departments, 'user'=>$user]);
+    }
+
+    public function postaccount(Request $rq, $id)
+    {
+        $this->validate($rq,[
+
+        ],[
+
+        ]);
+        $users = User::Find($id);
+        $users->lead = $rq->phone;
+
+        if ($rq->changepass == "on")
+        {
+            $this->validate($rq,[
+                'password' => 'required',
+                'repassword' => 'required|same:password',
+            ],[
+                'name.required' => 'mật khẩu không được để trống',
+                'repassword.same' => 'mật khẩu nhập lại chưa đúng'
+
+            ]);
+            $users->password = bcrypt($rq->password);
+        }
+
+
+        if ($rq->HasFile('image')) {
+            $file = $rq->file('image');
+            $name = $file->getClientOriginalName();
+            $img = str_random(4)."-".$name;
+            while (file_exists("upload/users/".$img)){
+                $img = str_random(4)."-".$name;
+            }
+            $file->move("upload/users", $img);
+            unlink("upload/users/".$users->image);
+            $users->image = $img;
+        }
+        $users->save();
+        return redirect('staff/account/'.$id)->with('msg','sửa thông tin nhân viên thành công');
+    }
+
+    
+
+    public function getloginstaff()
+    {
+        return view('fe/login');
+    }
+    public function postloginstaff(Request $rq)
+    {
+        $this->validate($rq,[
+
+        ],[
+
+        ]);
+        if (Auth::attempt(['usersname' => $rq->usersname, 'password' => $rq->password])) {
+            return redirect('/about');
+        }
+        else {
+            return redirect('staff/login')->with('msg','sai tài khoản rồi thím ơi !');
+        }
+    }
+    public function logoutstaff()
+    {
+        Auth::logout();
+        return redirect('staff/login')->with('msg','Đăng xuất thành công bạn ôi !');
     }
 }

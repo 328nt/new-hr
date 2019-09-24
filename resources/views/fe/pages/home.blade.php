@@ -10,7 +10,7 @@
                         <div class="banner_text text-center">
                             <div class="banner_text_iner">
                                 <h1> IEG</h1>
-                                <p>Let’s start your journey with us, your dream will come true</p>
+                                <p>Something in here... abc xyz</p>
                                 {{-- <a href="#" class="btn_1">Discover Now</a> --}}
                             </div>
                         </div>
@@ -29,12 +29,12 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="section_tittle text-center">
-                            <h2>Top Places to visit</h2>
-                            <p>Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales grass is fish whales winged.</p>
+                            <h2>Best Places to work</h2>
+                            <p>La la la la la Something La la la la la</p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single_place">
                             <img src="fe/img/single_place_1.png" alt="">
@@ -128,11 +128,11 @@
                         </div>
                     </div>
                     <a href="#" class="btn_1 text-cnter">Discover more</a>
-                </div>
+                </div> --}}
             </div>
         </section>
         <!--top place end-->
-    
+{{--     
         <!--top place start-->
         <section class="event_part section_padding">
             <div class="container">
@@ -451,6 +451,6 @@
                 </div>
             </div>
         </section>
-        <!--::industries end::-->
+        <!--::industries end::--> --}}
     
 @endsection

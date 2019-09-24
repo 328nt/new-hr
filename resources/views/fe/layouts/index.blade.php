@@ -31,10 +31,12 @@
     <link rel="stylesheet" href="fe/css/style.css">
     {{-- datatable --}}
     <link href="assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
 <body>
+    @include('fe/pages/modal')
    <!--::header part start::-->
    @include('fe/layouts/header')
     <!-- Header part end-->

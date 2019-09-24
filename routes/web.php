@@ -16,18 +16,37 @@
 //     return view('welcome');
 // });
 Route::get('index', function () {
-    return view('be.layouts.index');
+    return view('fe.layouts.index');
 });
 Route::get('/1', function () {
     return view('fe.layouts.index');
 });
 
+
+// stafflogin
+Route::get('/staff', 'PagesController@getloginstaff');
+Route::get('/staff/login', 'PagesController@getloginstaff');
+Route::post('/staff/login', 'PagesController@postloginstaff')->name('staff_login');
+Route::get('/staff/logout', 'PagesController@logoutstaff');
+
+Route::group(['prefix' => '', 'middleware'=>'is_all'], function () {
+    
 // frontend
 Route::get('/', 'PagesController@index');
+Route::get('/index', 'PagesController@all');
 Route::get('/index.html', 'PagesController@index');
 Route::get('/about', 'PagesController@about')->name('about');
+Route::get('/department/{id}', 'PagesController@department')->name('department');
+Route::get('/sidebar_right', 'PagesController@sidebar_right')->name('sidebar_right');
+Route::get('news/category/{id}', 'PagesController@category')->name('category');
 Route::get('/news', 'PagesController@news')->name('news');
 Route::get('/news/{id}', 'PagesController@newsingle')->name('newsingle');
+Route::get('staff/account/{id}', 'PagesController@getaccount');
+Route::post('staff/account/{id}', 'PagesController@postaccount');
+Route::post('comment/{id}', 'CommentController@store');
+});
+
+
 
 
 // adminlogin
@@ -69,5 +88,9 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'is_admin'], function () {
         Route::get('edit/{id}', 'NewsController@edit')->name('edit_news');
         Route::post('edit/{id}', 'NewsController@update')->name('update_news');
         Route::get('delete/{id}', 'NewsController@destroy')->name('destroy');   
+    });
+    Route::group(['prefix' => 'comment'], function () {
+        
+        Route::get('delete/{id}', 'CommentController@destroy')->name('destroy');   
     });
 });

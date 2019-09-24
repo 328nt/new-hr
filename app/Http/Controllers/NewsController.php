@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\News;
 use App\Category;
+use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -54,6 +56,7 @@ class NewsController extends Controller
 
         ]);
         $news = new News();
+        $news->author = Auth::user()->id;
         $news->title = $rq->title;
         $news->titlenone = str_slug($rq->title);
         $news->id_category = $rq->id_category;

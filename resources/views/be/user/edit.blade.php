@@ -30,6 +30,12 @@ list
                         <input class="form-control" name="email" type="text" value="{{$users->email}}">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="phone" type="text" value="{{$users->lead}}">
+                    </div>
+                </div>
                 
                 <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Change password</label>
