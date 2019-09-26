@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 24, 2019 lúc 06:52 AM
+-- Thời gian đã tạo: Th9 26, 2019 lúc 05:31 AM
 -- Phiên bản máy phục vụ: 10.3.15-MariaDB
 -- Phiên bản PHP: 7.3.6
 
@@ -131,7 +131,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2019_09_18_090405_create_news_table', 7),
 (11, '2019_09_23_022904_create_comments_table', 8),
 (12, '2019_09_23_045521_add_id_user_in_news_table', 9),
-(13, '2019_09_23_050649_add_id_user_in_news_table', 10);
+(13, '2019_09_23_050649_add_id_user_in_news_table', 10),
+(14, '2019_09_26_031452_create_tests_table', 11),
+(15, '2019_09_26_032050_create_tests_table', 12);
 
 -- --------------------------------------------------------
 
@@ -264,6 +266,27 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `tests`
+--
+
+CREATE TABLE `tests` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pwd` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tests`
+--
+
+INSERT INTO `tests` (`id`, `name`, `pwd`, `created_at`, `updated_at`) VALUES
+(1, 'ieg1043', '$2y$10$JiWfxEknVO7qUXoJ7Vk.dutTIiGDF.sJGidzMiSJ.GsvNgRNwddh.', '2019-09-25 20:29:53', '2019-09-25 20:29:53');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -363,6 +386,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `tests`
+--
+ALTER TABLE `tests`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -397,7 +426,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `news`
@@ -416,6 +445,12 @@ ALTER TABLE `positions`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `tests`
+--
+ALTER TABLE `tests`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
