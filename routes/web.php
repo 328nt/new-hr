@@ -23,6 +23,10 @@ Route::get('/1', function () {
 });
 
 
+Route::get('test', 'TestController@gettest');
+Route::post('test', 'TestController@posttest')->name('test');
+
+
 // stafflogin
 Route::get('/staff', 'PagesController@getloginstaff');
 Route::get('/staff/login', 'PagesController@getloginstaff');
