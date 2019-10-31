@@ -1,13 +1,19 @@
 
     
                             <aside class="single_sidebar_widget post_category_widget">
-                                <h4 class="widget_title">Category</h4>
+                                <h4 class="widget_title"><b>Category</b> </h4>
                                 <ul class="list cat-list">
                                     @foreach ($categories as $category)
                                     <li>
                                             <a href="news/category/{{$category->id}}" class="d-flex">
-                                                <p>{{$category->name}} &emsp;</p>
-                                                <p> ({{count($category->news)}} bài viết)</p>
+                                                <p style="
+                                                font-weight: 800;
+                                                color: #0c3e72;
+                                            ">{{$category->name}} &emsp;</p>
+                                                <p style="
+                                                font-weight: 800;
+                                                color: #0c3e72;
+                                            "> ({{count($category->news)}} bài viết)</p>
                                             </a>
                                         </li>
                                     @endforeach

@@ -29,7 +29,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="section_tittle text-center">
-                            <h2>Best Places to work</h2>
+                            <h2>Giá trị cốt lõi</h2>
                             <p>La la la la la Something La la la la la</p>
                         </div>
                     </div>
@@ -224,114 +224,6 @@
         </section>
         <!--top place end-->
     
-        <!--::industries start::-->
-        <section class="hotel_list section_padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="section_tittle text-center">
-                            <h2>Top Hotel & Restaurants</h2>
-                            <p>Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales grass is fish whales winged.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_ihotel_list">
-                            <img src="fe/img/ind/industries_1.png" alt="">
-                            <div class="hover_text">
-                                <div class="hotel_social_icon">
-                                    <ul>
-                                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="share_icon">
-                                    <i class="ti-share"></i>
-                                </div>
-                            </div>
-                            <div class="hotel_text_iner">
-                                <h3> <a href="#"> Hotel Polonia</a></h3>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                                <p>London, United Kingdom</p>
-                                <h5>From <span>$500</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_ihotel_list">
-                            <img src="fe/img/ind/industries_2.png" alt="">
-                            <div class="hover_text">
-                                <div class="hotel_social_icon">
-                                    <ul>
-                                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="share_icon">
-                                    <i class="ti-share"></i>
-                                </div>
-                            </div>
-                            <div class="hotel_text_iner">
-                                <h3> <a href="#"> Hotel Polonia</a></h3>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                                <p>London, United Kingdom</p>
-                                <h5>From <span>$500</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_ihotel_list">
-                            <img src="fe/img/ind/industries_3.png" alt="">
-                            <div class="hover_text">
-                                <div class="hover_text">
-                                    <div class="hotel_social_icon">
-                                        <ul>
-                                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                            <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="share_icon">
-                                        <i class="ti-share"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotel_text_iner">
-                                <h3> <a href="#"> Hotel Polonia</a></h3>
-                                <div class="place_review">
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <a href="#"><i class="fas fa-star"></i></a>
-                                    <span>(210 review)</span>
-                                </div>
-                                <p>London, United Kingdom</p>
-                                <h5>From <span>$500</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--::industries end::-->
     
         <!--top place start-->
         <section class="client_review section_padding">
@@ -452,5 +344,18 @@
             </div>
         </section>
         <!--::industries end::--> --}}
-    
+        {{-- <div class="container">
+            <h2>Our  Partners</h2>
+             <section class="customer-logos slider">
+                <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg"></div>
+                <div class="slide"><img src="http://www.webcoderskull.com/img/logo.png"></div>
+                <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
+                <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"></div>
+                <div class="slide"><img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg"></div>
+                <div class="slide"><img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg"></div>
+                <div class="slide"><img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg"></div>
+                <div class="slide"><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg"></div>
+                <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div>
+             </section>
+          </div> --}}
 @endsection

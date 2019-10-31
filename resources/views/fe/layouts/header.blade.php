@@ -34,16 +34,16 @@
                             <div class="collapse navbar-collapse main-menu-item justify-content-center"
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item">
+                                    <li class="nav-item {{ request()->is('index.html*') ? 'active' : '' }}">
                                         <a class="nav-link" href="index.html">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('about')}}">About</a>
+                                        <a class="nav-link" href="{{route('about')}}">Recources</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('news')}}">News</a>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    {{-- <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
@@ -54,7 +54,7 @@
                                         <a class="dropdown-item" href="department/{{$department->id}}">{{$department->name}}</a>
                                             @endforeach
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -78,6 +78,17 @@
                                                 @foreach ($departments as $department)
                                                 <a class="dropdown-item" href="department/{{$department->id}}">{{$department->name}}</a>
                                                     @endforeach
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Gallery
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#myModal" href="top_place.html">Ảnh</a>
+                                            <a class="dropdown-item"  href="gallery_videos">Video</a>
                                         </div>
                                     </li>
                                     

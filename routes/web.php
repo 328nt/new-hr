@@ -26,6 +26,9 @@ Route::get('/1', function () {
 Route::get('test', 'TestController@gettest');
 Route::post('test', 'TestController@posttest')->name('test');
 
+Route::any('/search', 'PagesController@search');
+Route::any('/search_results', 'PagesController@search_results');
+
 
 // stafflogin
 Route::get('/staff', 'PagesController@getloginstaff');
@@ -48,6 +51,11 @@ Route::get('/news/{id}', 'PagesController@newsingle')->name('newsingle');
 Route::get('staff/account/{id}', 'PagesController@getaccount');
 Route::post('staff/account/{id}', 'PagesController@postaccount');
 Route::post('comment/{id}', 'CommentController@store');
+Route::post('video/comment/{id}', 'CommentController@store_video')->name('comment_video');
+Route::get('/images', 'PagesController@images')->name('images');
+Route::get('/gallery_videos', 'PagesController@gallery_videos')->name('gallery_videos');
+Route::get('/gallery_videos/video/{id}', 'PagesController@video')->name('video');
+
 });
 
 
@@ -74,6 +82,16 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'is_admin'], function () {
         Route::get('edit/{id}', 'DepartmentController@edit')->name('edit');
         Route::post('edit/{id}', 'DepartmentController@update')->name('update');
         Route::get('delete/{id}', 'DepartmentController@destroy')->name('destroy');   
+    });
+
+    Route::group(['prefix' => 'videos'], function () {
+        Route::get('list', 'GalleryVideosController@index')->name('list_video');
+        Route::get('add', 'GalleryVideosController@create');
+        Route::post('add', 'GalleryVideosController@store')->name('add_video');
+        Route::get('edit/{id}', 'GalleryVideosController@edit')->name('edit');
+        Route::post('edit/{id}', 'GalleryVideosController@update')->name('update');
+        // Route::get('delete/{id}', 'GalleryVideosController@destroy')->name('destroy');  
+        Route::post('destroy', 'GalleryVideosController@destroy')->name('destroy_video'); 
     });
 
     Route::group(['prefix' => 'users'], function () {

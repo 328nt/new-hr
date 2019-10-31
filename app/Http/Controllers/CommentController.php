@@ -46,6 +46,18 @@ class CommentController extends Controller
         return redirect('news/'.$id)->with('msg',' Thêm bình luận thành công !!');
 
     }
+    
+    public function store_video($id, Request $request)
+    {
+        $id_video = $id;
+        $comment = new Comment;
+        $comment->id_video = $id_video;
+        $comment->idUser = Auth::user()->id;
+        $comment->content = $request->content;
+        $comment->save();
+        return redirect('gallery_videos/video/'.$id)->with('msg',' Thêm bình luận thành công !!');
+
+    }
 
     /**
      * Display the specified resource.

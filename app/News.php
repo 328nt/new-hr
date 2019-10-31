@@ -19,4 +19,8 @@ class News extends Model
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
+    public function authors()
+    {
+        return $this->belongsTo('App\User', 'author', 'id');
+    }
 }

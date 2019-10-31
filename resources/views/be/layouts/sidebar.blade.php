@@ -17,7 +17,7 @@
             <li class="heading">FEATURES</li>
 
 
-            <li>
+            <li class="{{ request()->is('admin/users*') ? 'active' : '' }}">
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
                     <span class="nav-label">Users</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
@@ -32,7 +32,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="{{ request()->is('admin/news*') ? 'active' : '' }}">
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
                     <span class="nav-label">News</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
@@ -47,7 +47,23 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            
+            <li class="{{ request()->is('admin/videos*') ? 'active' : '' }}">
+                    <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
+                        <span class="nav-label">Videos</span><i class="fa fa-angle-left arrow"></i></a>
+                    <ul class="nav-2-level collapse">
+                        <li>
+                            <a href="admin/videos/list">List</a>
+                        </li>
+                        <li class="{{ request()->is('admin/videos/add') ? 'active' : '' }}">
+                            <a href="admin/videos/add">add</a>
+                        </li>
+                        <li>
+                            <a href="panels.html">Panels</a>
+                        </li>
+                    </ul>
+                </li>
+            <li class="{{ request()->is('admin/training*') ? 'active' : '' }}">
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
                     <span class="nav-label">Training</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">

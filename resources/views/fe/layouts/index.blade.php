@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="en">
+ <!-- 
+         __________ ____    ____  _______
+        (____   ____)_  \  / _  \__    ___)
+            |  | |  | \  |  /_\  \ |  |
+            |  | |  | /  | /___\  \|  |
+            |__| |_____ /_/     \__\__|
+ -->
+
 
 <head>
     <!-- Required meta tags -->
@@ -32,6 +40,7 @@
     {{-- datatable --}}
     <link href="assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 
 </head>
 
@@ -67,6 +76,7 @@
     <script src="fe/js/jquery.validate.min.js"></script>
     <script src="fe/js/mail-script.js"></script>
     <script src="fe/js/contact.js"></script>
+    <script src="fe/js/slick.min.js"></script>
     <!-- custom js -->
     @yield('script')
     <script src="fe/js/custom.js"></script>

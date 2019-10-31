@@ -40,7 +40,7 @@
                                         </a>
                                         <p>{{$new->description}}</p>
                                         <ul class="blog-info-link">
-                                                <li><a href="staff/account/{{$new->users->id}}"><i class="far fa-user"></i> {{$new->users->fullname}}</a></li>
+                                                <li><a href="staff/account/{{$new->users->id}}"><i class="far fa-user"></i> {{$new->authors->fullname}}</a></li>
                                                 <li><a href="news/{{$new->id}}#comment"><i class="far fa-comments"></i> {{count($new->comments)}} Comments</a></li>
                                         </ul>
                                     </div>

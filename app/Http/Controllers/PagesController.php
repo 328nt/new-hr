@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use App\Gallery_videos;
 use App\Category;
 use App\News;
 use App\Department;
@@ -63,12 +64,67 @@ class PagesController extends Controller
         $spotlight = News::where('hightlight', 1)->take(3)->get();
         $new = News::find($id);
         $previous = News::where('id', '<', $new->id)->max('id');
+        $previous_title = News::find($previous);
         $next = News::where('id', '>', $new->id)->min('id');
-        $news = News::orderBy('id', 'DESC')->paginate(4);
-        return view('fe/pages/new',['next'=>$next, 'previous'=>$previous, 'spotlight'=>$spotlight, 'news'=>$news, 'new'=>$new]);
+        $next_title = News::find($next);
+        $news = News::orderBy('id', 'DESC')->paginate(6);
+        return view('fe/pages/new',['next'=>$next,'next_title'=>$next_title, 'previous'=>$previous,'previous_title'=>$previous_title, 'spotlight'=>$spotlight, 'news'=>$news, 'new'=>$new]);
+    }
+
+    public function images()
+    {
+        return view('fe.pages.images');
+    }
+
+    
+    public function gallery_videos()
+    {
+        $videos = Gallery_videos::all();
+        return view('fe.pages.gallery_videos', compact('videos'));
+    }
+    public function video($id)
+    {
+        $video = Gallery_videos::find($id);
+        $previous = Gallery_videos::where('id', '<', $video->id)->max('id');
+        $previous_title = Gallery_videos::find($previous);
+        $next = Gallery_videos::where('id', '>', $video->id)->min('id');
+        $next_title = Gallery_videos::find($next);
+        $videos = Gallery_videos::orderBy('id', 'DESC')->paginate(4);
+        return view('fe.pages.video', compact('video', 'previous','previous_title', 'next_title', 'next', 'videos'));
     }
 
 
+    public function search()
+    {
+        $departments = Department::all();
+        // dd($departments);
+        return view('fe/pages/search', compact('departments'));
+    }
+
+
+    
+
+    public function search_results() 
+    {
+        $searchusers = request('users');
+        $searchdepartment = request('department');
+    
+        $ads = null;
+    
+        if($searchusers) {
+            $ads = User::when($searchusers, function ($query) use ($searchusers) {
+                    return $query->where('name', 'like', "%{$searchusers}%");
+                })
+                ->when($searchdepartment, function ($query) use ($searchdepartment) {
+                    return $query->whereHas('department', function ($query) use ($searchdepartment) {
+                        $query->where('id', $searchdepartment);
+                    });
+                })
+                ->paginate(2)
+                ->appends(request()->query());
+        }
+        return view('fe/pages/search_results', compact('ads'));
+    }
 
 
     //account
