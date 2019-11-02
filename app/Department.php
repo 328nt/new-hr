@@ -12,4 +12,8 @@ class Department extends Model
     {
         return $this->belongsTo('App\User', 'id_department', 'id');
     }
+    public function form()
+    {
+        return $this->hasMany('App\Form', 'id_department', 'id');
+    }
 }

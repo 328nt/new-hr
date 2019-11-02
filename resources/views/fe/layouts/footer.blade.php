@@ -35,7 +35,7 @@
                     <div class="col-lg-12">
                         <div class="copyright_part_text text-center">
                             <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://google.com" target="_blank">TienDat</a>
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with 69%<i class="ti-heart" aria-hidden="true"></i> by <a href="https://google.com" target="_blank">TienDat</a>
     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>

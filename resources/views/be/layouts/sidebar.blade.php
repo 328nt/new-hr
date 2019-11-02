@@ -78,6 +78,21 @@
                     </li>
                 </ul>
             </li>
+            <li class="{{ request()->is('admin/forms*') ? 'active' : '' }}">
+                <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
+                    <span class="nav-label">Procedures</span><i class="fa fa-angle-left arrow"></i></a>
+                <ul class="nav-2-level collapse">
+                    <li>
+                        <a href="admin/forms/list">List</a>
+                    </li>
+                    <li>
+                        <a href="admin/forms/add">add</a>
+                    </li>
+                    <li>
+                        <a href="panels.html">Panels</a>
+                    </li>
+                </ul>
+            </li>
             <li class="heading">PAGES</li>
             <li>
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>

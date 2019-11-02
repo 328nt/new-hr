@@ -56,6 +56,9 @@ Route::get('/images', 'PagesController@images')->name('images');
 Route::get('/gallery_videos', 'PagesController@gallery_videos')->name('gallery_videos');
 Route::get('/gallery_videos/video/{id}', 'PagesController@video')->name('video');
 
+Route::get('/procedure/{id}', 'PagesController@procedure')->name('procedure');
+Route::get('/form', 'PagesController@form')->name('form');
+
 });
 
 
@@ -92,6 +95,16 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'is_admin'], function () {
         Route::post('edit/{id}', 'GalleryVideosController@update')->name('update');
         // Route::get('delete/{id}', 'GalleryVideosController@destroy')->name('destroy');  
         Route::post('destroy', 'GalleryVideosController@destroy')->name('destroy_video'); 
+    });
+
+    Route::group(['prefix' => 'forms'], function () {
+        Route::get('list', 'FormController@index')->name('list_form');
+        Route::get('add', 'FormController@create');
+        Route::post('add', 'FormController@store')->name('add_form');
+        Route::get('edit/{id}', 'FormController@edit')->name('edit');
+        Route::post('edit/{id}', 'FormController@update')->name('update');
+        // Route::get('delete/{id}', 'FormController@destroy')->name('destroy');  
+        Route::post('destroy', 'FormController@destroy')->name('destroy_form'); 
     });
 
     Route::group(['prefix' => 'users'], function () {

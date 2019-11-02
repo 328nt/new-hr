@@ -10,6 +10,8 @@ use App\Category;
 use App\News;
 use App\Department;
 use App\Position;
+use App\Form;
+use App\Procedure;
 use App\Role;
 use App\User;
 
@@ -20,9 +22,13 @@ class PagesController extends Controller
 		$departments = Department::All();
         $positions = Position::all();
         $categories = Category::all();
+		$forms = Form::All();
+		$procedures = Procedure::All();
 		view::share('departments',$departments);
 		view::share('positions',$positions);
 		view::share('categories',$categories);
+		view::share('procedures',$procedures);
+		view::share('forms',$forms);
     }
     
     public function index()
@@ -33,6 +39,15 @@ class PagesController extends Controller
     {
         $users = User::all();
         return view('fe/pages/about',['users'=>$users]);
+    }
+    public function procedure($id)
+    {
+        
+        $department = Department::find($id);
+        $form = Form::where('id_department', $id)->get();
+        // dd($form);
+        return view('fe/pages/form_dpt', compact('department', 'form'));
+
     }
 
     

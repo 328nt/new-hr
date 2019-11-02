@@ -76,7 +76,9 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                                 @foreach ($departments as $department)
+                                                @if (count($department->form) > 0)
                                                 <a class="dropdown-item" href="department/{{$department->id}}">{{$department->name}}</a>
+                                                @endif
                                                     @endforeach
                                         </div>
                                     </li>
