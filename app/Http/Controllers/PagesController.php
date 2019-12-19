@@ -24,28 +24,36 @@ class PagesController extends Controller
         $categories = Category::all();
 		$forms = Form::All();
 		$procedures = Procedure::All();
+		$users = User::All();
 		view::share('departments',$departments);
 		view::share('positions',$positions);
 		view::share('categories',$categories);
+		view::share('users',$users);
 		view::share('procedures',$procedures);
 		view::share('forms',$forms);
     }
     
+    public function getstaff($id_department)
+    {
+        $users = User::where('id_department', $id_department)->get();
+        // dd($users);
+        foreach ($users as $user) {
+            echo "<option value ='".$user->id."'> ".$user->fullname."</option>";
+        }
+    }
     public function index()
     {
         return view('fe/pages/home');
     }
     public function about()
     {
-        $users = User::all();
-        return view('fe/pages/about',['users'=>$users]);
+        return view('fe/pages/about');
     }
     public function procedure($id)
     {
         
         $department = Department::find($id);
         $form = Form::where('id_department', $id)->get();
-        // dd($form);
         return view('fe/pages/form_dpt', compact('department', 'form'));
 
     }
@@ -109,36 +117,36 @@ class PagesController extends Controller
     }
 
 
+    public function time()
+    {
+        return view('fe/pages/time');
+    }
+    public function rentime(Request $rq)
+    {
+        $time1 = strtotime($rq->timein);
+        $time2 = strtotime($rq->timeout);
+        $lunch = date("H:i", 1.5*60*60);
+        $time = date("H:i",$time2-$time1);
+        // dd($time);
+        return view('fe/pages/time', compact('time','time1','time2', 'lunch'));
+    }
+
     public function search()
     {
-        $departments = Department::all();
-        // dd($departments);
-        return view('fe/pages/search', compact('departments'));
+        return view('fe/pages/search');
     }
 
 
     
 
-    public function search_results() 
+    public function search_results(Request $rq) 
     {
-        $searchusers = request('users');
-        $searchdepartment = request('department');
-    
-        $ads = null;
-    
-        if($searchusers) {
-            $ads = User::when($searchusers, function ($query) use ($searchusers) {
-                    return $query->where('name', 'like', "%{$searchusers}%");
-                })
-                ->when($searchdepartment, function ($query) use ($searchdepartment) {
-                    return $query->whereHas('department', function ($query) use ($searchdepartment) {
-                        $query->where('id', $searchdepartment);
-                    });
-                })
-                ->paginate(2)
-                ->appends(request()->query());
-        }
-        return view('fe/pages/search_results', compact('ads'));
+        $fullname = trim($rq->search);
+        $dpt = $rq->department;
+        $staff = User::where('fullname', 'like',"%{$fullname}%")->where('id_department', $dpt)->get();
+        $data['staff'] = $staff;
+        dd($data['staff']);
+        return view('fe/pages/about', compact('staff'));
     }
 
 

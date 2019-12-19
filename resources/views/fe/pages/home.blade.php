@@ -1,40 +1,40 @@
 @extends('fe/layouts/index')
 @section('content')
-    
 
-    <!-- banner part start-->
-    <section class="banner_part">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-10">
-                        <div class="banner_text text-center">
-                            <div class="banner_text_iner">
-                                <h1> IEG</h1>
-                                <p>Something in here... abc xyz</p>
-                                {{-- <a href="#" class="btn_1">Discover Now</a> --}}
-                            </div>
-                        </div>
+
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-10">
+                <div class="banner_text text-center">
+                    <div class="banner_text_iner">
+                        <h1> IEG</h1>
+                        <p>Something in here... abc xyz</p>
+                        {{-- <a href="#" class="btn_1">Discover Now</a> --}}
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- banner part start-->
-    
-        <!-- booking part start-->
-        <!-- Header part end-->
-    
-        <!--top place start-->
-        <section class="top_place section_padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="section_tittle text-center">
-                            <h2>Giá trị cốt lõi</h2>
-                            <p>La la la la la Something La la la la la</p>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+
+<!-- booking part start-->
+<!-- Header part end-->
+
+<!--top place start-->
+<section class="top_place section_padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="section_tittle text-center">
+                    <h2>Giá trị cốt lõi</h2>
+                    <p>La la la la la Something La la la la la</p>
                 </div>
-                {{-- <div class="row">
+            </div>
+        </div>
+        {{-- <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single_place">
                             <img src="fe/img/single_place_1.png" alt="">
@@ -129,9 +129,21 @@
                     </div>
                     <a href="#" class="btn_1 text-cnter">Discover more</a>
                 </div> --}}
+    </div>
+</section>
+
+<section class="top_place section_padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="section_tittle text-center">
+                    <h2>Sơ đồ tổ chức</h2>
+                    <p>La la la la la Something La la la la la</p>
+                </div>
             </div>
-        </section>
-        <!--top place end-->
+        </div>
+</section>
+<!--top place end-->
 {{--     
         <!--top place start-->
         <section class="event_part section_padding">
@@ -344,7 +356,7 @@
             </div>
         </section>
         <!--::industries end::--> --}}
-        {{-- <div class="container">
+{{-- <div class="container">
             <h2>Our  Partners</h2>
              <section class="customer-logos slider">
                 <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg"></div>

@@ -143,7 +143,148 @@
             </div>
         </div>
 
+        <section class="top_place">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="section_tittle text-center">
+                            <form class="form-inline myform" action="/search_results" method="GET" role="search">
+                                {{ csrf_field() }}
+        
+                                <label data-toggle="tooltip" data-placement="top" title="select category"
+                                    class="sr-only mr-sm-2" for="inlineFormCustomSelect">departments</label>
+                                <select name="department" data-toggle="tooltip" data-placement="top" title="select category"
+                                    class="custom-select mb-2 mr-sm-2 mb-sm-0" id="department" required>
+                                    <option value="" selected disabled hidden >Select department</option>
+                                    @foreach ($departments as $category)
+                                        
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                  
+                                    @endforeach
+                                </select>
+                                <div class="input-group" data-toggle="tooltip" data-placement="top" title="Title">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil"></i></span>
+                                    <input name="search" type="text" class="form-control" placeholder="search"
+                                        aria-describedby="basic-addon1" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+@if(isset($staff))
+<h2>Search results</h2>
+@if ($staff === Null)
+    
+No results
+@else
+    <div class="ibox-body">
+        <table class="table table-striped table-bordered table-hover" id="example-table"
+            cellspacing="0" width="100%">
+            <thead>
+                <tr style="color: #fff; text-align: center; background-color: #114275;">
+                    <th>Tên</th>
+                    <th>Mã NV</th>
+                    <th>Email</th>
+                    <th>Sđt</th>
+                    <th>Phòng ban</th>
+                    <th>Chức vụ</th>
+                    <th>DOB</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Tên</th>
+                    <th>Mã NV</th>
+                    <th>Email</th>
+                    <th>Sđt</th>
+                    <th>Phòng ban</th>
+                    <th>Position</th>
+                    <th>DOB</th>
+                </tr>
+            </tfoot>
+            <tbody style="text-align:center; line-height: 120px">
+    
+                @foreach ($staff as $user)
+                <tr>
+                    <td>
+                        <p><a href="staff/account/{{$user->id}}">{{$user->fullname}}</a></p>
+                        <p style="background-image: url(upload/users/{{$user->image}});
+                        height: 100px; 
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;"></p>
+                    </td>
+                    <td>{{$user->staff_code}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->lead}}</td>
+                    <td>{{$user->department->name}}</td>
+                    <td>{{$user->position}}</td>
+                    <td>{{$user->birthday}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+@endif
+@endif
             <!--all-->
+            <div class="card card-body">
+                <div class="ibox">
+                    <h3>Danh sách nhân viên</h3>
+                    <div class="ibox-body">
+                        <table class="table table-striped table-bordered table-hover" id="example-table"
+                            cellspacing="0" width="100%">
+                            <thead>
+                                <tr style="color: #fff; text-align: center; background-color: #114275;">
+                                    <th>Tên</th>
+                                    <th>Mã NV</th>
+                                    <th>Email</th>
+                                    <th>Sđt</th>
+                                    <th>Phòng ban</th>
+                                    <th>Chức vụ</th>
+                                    <th>DOB</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Tên</th>
+                                    <th>Mã NV</th>
+                                    <th>Email</th>
+                                    <th>Sđt</th>
+                                    <th>Phòng ban</th>
+                                    <th>Position</th>
+                                    <th>DOB</th>
+                                </tr>
+                            </tfoot>
+                            <tbody style="text-align:center; line-height: 120px">
+
+                                @foreach ($users as $user)
+                                <tr>
+                                    <td>
+                                        <p><a href="staff/account/{{$user->id}}">{{$user->fullname}}</a></p>
+                                        <p style="background-image: url(upload/users/{{$user->image}});
+                                        height: 100px; 
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;"></p>
+                                    </td>
+                                    <td>{{$user->staff_code}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->lead}}</td>
+                                    <td>{{$user->department->name}}</td>
+                                    <td>{{$user->position}}</td>
+                                    <td>{{$user->birthday}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
                     <div>
                         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
                             aria-expanded="false" aria-controls="collapseExample">
@@ -193,7 +334,7 @@
                                                     <td>{{$user->email}}</td>
                                                     <td>{{$user->lead}}</td>
                                                     <td>{{$user->department->name}}</td>
-                                                    <td>{{$user->position->name}}</td>
+                                                    <td>{{$user->position}}</td>
                                                     <td>{{$user->birthday}}</td>
                                                 </tr>
                                                 @endforeach
@@ -205,59 +346,13 @@
                         </div>
                     </div>
             <!--department-->
-            <div class="col-md-6">
-
-                <button class="nav-item dropdown btn btn-primary" >
-                    <a style="color:#fff" class="navbuttonnk dropdown-toggle" href="blog.html" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Department
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach ($departments as $department)
-                        <a class="dropdown-item" href="department/{{$department->id}}"><b>{{$department->name}}</b></a>
-                        @endforeach
-                    </div>
-                </button>
-            </div>
 </section>
 <!--::industries end::-->
 <!-- search-->
 
-<section class="top_place section_padding">
-    <div class="container">
-
-        <div class="row justify-content-center">
-            <div class="col-xl-6">
-                <div class="section_tittle text-center">
-                    <form class="form-inline myform" action="/search_results" method="GET" role="search">
-                        {{ csrf_field() }}
-
-                        <label data-toggle="tooltip" data-placement="top" title="select category"
-                            class="sr-only mr-sm-2" for="inlineFormCustomSelect">departments</label>
-                        <select name="department" data-toggle="tooltip" data-placement="top" title="select category"
-                            class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                            <option value="">Select category</option>
-                            @foreach ($departments as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                        <div class="input-group" data-toggle="tooltip" data-placement="top" title="Title">
-                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil"></i></span>
-                            <input name="users" type="text" class="form-control" placeholder="Title"
-                                aria-describedby="basic-addon1">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- search-->
 <!--top place start-->
-<section class="client_review section_padding">
+<section class="client_review">
     <div class="container">
         <div class="row ">
             <div class="col-xl-6">
@@ -392,5 +487,14 @@
                 ]*/
             });
         })
+        
+    $(document).ready(function() {
+        $("#department").change(function(){
+            var id_department = $(this).val();
+            $.get("ajax/staff/"+id_department, function(data){
+             $("#staff").html(data);
+            });
+        });
+    }); 
 </script>
 @endsection

@@ -17,17 +17,17 @@ class UsersImport implements ToModel, WithHeadingRow
     {
         return new User([
             
-            'fullname'    => $row['name'], 
+            'fullname'    => $row['full_name'], 
             'usersname'     => 'ieg'.''.$row['staff_code'],
             'staff_code'    => $row['staff_code'],
-            'phone'    => $row['phone'], 
-            'email'    => $row['email'].''.'@ieg.vn',
-            'image'    => $row['image'], 
+            'phone'    => '0344445304', 
+            'email'    => $row['email'],
+            'image'    => 'nch.jpg', 
             'birthday'    => $row['dob'], 
             'dayin'    => $row['dayin'],
-            'vacation'    => $row['vacation'],
+            // 'vacation'    => $row['vacation'],
             'id_department'    => $row['department'],
-            'id_position'    => $row['position'],
+            'position'    => $row['position'],
             'password' => \Hash::make('123456'),
         ]);
     }

@@ -2,7 +2,7 @@
 @extends('fe/layouts/index')
 @section('content')
 
-@if(isset($ads))
+@if(isset($staff))
 <h2>Search results</h2>
 <table class="table table-striped">
     <thead>
@@ -12,10 +12,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($ads as $ad)
+        @foreach($staff as $ad)
         <tr>
-            <td>{{$ad->title}}</td>
-            <td>{{$ad->description}}</td>
+            <td>{{$ad->fullname}}</td>
+            <td>{{$ad->email}}</td>
         </tr>
         @endforeach
     </tbody>

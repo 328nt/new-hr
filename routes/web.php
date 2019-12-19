@@ -23,6 +23,11 @@ Route::get('/1', function () {
 });
 
 
+Route::get('/time', 'PagesController@time');
+
+Route::post('/rentime', 'PagesController@rentime')->name('rentime');
+
+
 Route::get('test', 'TestController@gettest');
 Route::post('test', 'TestController@posttest')->name('test');
 
@@ -36,6 +41,9 @@ Route::get('/staff/login', 'PagesController@getloginstaff');
 Route::post('/staff/login', 'PagesController@postloginstaff')->name('staff_login');
 Route::get('/staff/logout', 'PagesController@logoutstaff');
 
+Route::group(['prefix' => 'ajax'], function () {
+    Route::get('staff/{id_department}', 'PagesController@getstaff');
+});
 Route::group(['prefix' => '', 'middleware'=>'is_all'], function () {
     
 // frontend

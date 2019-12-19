@@ -9,7 +9,7 @@
                     <div class="col-lg-12">
                         <div class="breadcrumb_iner">
                             <div class="breadcrumb_iner_item text-center">
-                                <h2>Tin tức IEG</h2>
+                                <h2>Quy trình & biểu mẫu</h2>
                             </div>
                         </div>
                     </div>
@@ -24,35 +24,24 @@
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
+                            @foreach ($procedures as $item)
+                                {{$item->name}}
+                            @endforeach
                             @foreach ($form as $new)
                             <article class="blog_item">
                                     <div class="blog_item_img">
-                                        <img class="card-img rounded-0" src="upload/news/{{$new->image}}" alt="">
-                                        <a href="news/{{$new->id}}" class="blog_item_date">
-                                            <h3>{{$new->name}}</h3>
+                                        <a href="upload/procedure/{{$new->file}}">
+                                            <h3>{{$new->name}}</h3> 
                                         </a>
-                                    </div>
-        
-                                    <div class="blog_details">
-                                        <a class="d-inline-block" href="news/{{$new->id}}">
-                                            <h2>{{$new->title}}</h2>
-                                        </a>
-                                        <p>{{$new->description}}</p>
                                     </div>
                                 </article>
                             @endforeach
-    
-                            {{-- <nav class="blog-pagination justify-content-center d-flex">
-                                    {{ $form->links() }}
-                            </nav> --}}
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="blog_right_sidebar">
                             <aside class="single_sidebar_widget search_widget">
                             </aside>
-    
-                            {{-- @include('fe/pages/sidebar_right') --}}
                         </div>
                     </div>
                 </div>
